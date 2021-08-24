@@ -1,11 +1,12 @@
 // export
 class Point {
-  constructor(x, y) {
+  constructor(x, y, name) {
     if (typeof x !== "number" || typeof y !== "number") {
-      throw new Error("blabla");
+      throw new Error("point shud be a number");
     }
     this.x = x;
     this.y = y;
+    this.name = name;
   }
 
   distanceFrom(point) {
@@ -20,25 +21,22 @@ class Point {
   // static origin = new Point(0,0);
 }
 
-const points = [new Point(5, 6), new Point(10, 12), new Point(15, 20)];
+const points = [new Point(5, 6, 'A'), new Point(10, 12, 'B'), new Point(15, 20,'C')];
 
 const appRoot = document.getElementById("app-root");
 
 appRoot.innerHTML = `
 <div class="app-shell">
 
-  <h1>Points</h1>
+  <h1 class='name-container'>Points</h1>
   <div class="list">
-    ${points
-    .map(
-        (point) => `
-          <div class="chip">
-            <span>x: ${point.x}</span>
-            <span>y: ${point.y}</span>
-          </div>
-        `
-    )
-    .join("")}
+    <div class="flex-container">
+      ${points
+        .map(
+            (point) => `<div class="chip">${point.name} (x: ${point.x} y: ${point.y})</div>`
+        )
+        .join("")}
+    </div>
   </div>
 </div>
 `;

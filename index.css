@@ -13,6 +13,10 @@ body {
   flex-direction: column;
   margin: 8px;
 }
+.name-container{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
 .triangle-shell {
   margin: 8px;
@@ -22,19 +26,22 @@ body {
   flex-direction: column;
 }
 
+.flex-container {
+  display: flex;
+}
+
 .chip {
   background-color: white;
   display: flex;
   gap: 8px;
   border-radius: 4px;
   margin: 8px;
-  padding: 8px;
+  padding: 16px;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-
   gap: 24px;
 }
 
@@ -50,11 +57,11 @@ body {
   flex: 1;
 }
 
-.vertices {
+.shape-info  {
   display: flex;
   align-items: center;
 }
 
 .invalid {
-  background-color: red;
+  background-color: cadetblue;
 }

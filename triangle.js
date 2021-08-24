@@ -33,33 +33,38 @@ class Triangle {
   }
 }
 
-const a = new Point(0, 0);
-const b = new Point(0, 0);
-const c = new Point(4, 10);
-const e = new Point(1, 1);
-const d = new Point(5, 6);
-const f = new Point(3, 7);
+const d = new Point(0, 0);
+const e = new Point(0, 0);
+const f = new Point(4, 10);
+const g = new Point(1, 1);
+const h = new Point(5, 6);
+const k = new Point(3, 7);
 
-const triangles = [new Triangle(a, b, c), new Triangle(e, d, f)];
+const triangles = [new Triangle(d, e, f), new Triangle(g, h, k)];
 
 const triangleRoot = document.getElementById("triangle-root");
 
 triangleRoot.innerHTML = `
- ${triangles
+  ${triangles
     .map(
-        (triangle, index) => `
-          <div class= "app-shell ${!triangle.isValid() ? "invalid" : ""} ">
-            <h1>Triangle</h1>
-            <div class="list">
-                <div class="area">area:${triangle.isValid() ? triangle.area() : "--"}</div>
-                <div class="vertices"> vertices:
-                    <div class="chip"> ab: ${triangle.isValid() ? triangle.ab.toFixed(2): "--"}</div>
-                    <div class="chip"> bc: ${triangle.isValid() ? triangle.bc.toFixed(2): "--"}</div>
-                    <div class="chip"> cd: ${triangle.isValid() ? triangle.ca.toFixed(2): "--"}</div>
-                </div> 
+      (triangle) => `
+        <div class= "app-shell ${!triangle.isValid() ? "invalid" : ""} ">
+          <h1 class='name-container'>Triangles</h1>
+          <div class="list">
+              <div class="area">area:${triangle.isValid() ? triangle.area() : "--"}</div>
+              <div class="shape-info"> sides:
+                <div class="chip"> first side: ${triangle.isValid() ? triangle.ab.toFixed(2): "--"}</div>
+                <div class="chip"> second side: ${triangle.isValid() ? triangle.bc.toFixed(2): "--"}</div>
+                <div class="chip"> third side: ${triangle.isValid() ? triangle.ca.toFixed(2): "--"}</div>
+              </div> 
+            <div class="shape-info"> Picks:
+              <div class="chip">A (x: ${triangle.a.x} y: ${triangle.a.y})</div>
+              <div class="chip">B (x: ${triangle.b.x} y: ${triangle.b.y})</div>
+              <div class="chip">C (x: ${triangle.c.x} y: ${triangle.c.y})</div>
             </div>
           </div>
-        `
+        </div>
+      `
     )
-   .join("")}
+  .join("")}
 `;
