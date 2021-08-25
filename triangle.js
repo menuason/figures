@@ -46,7 +46,7 @@ const triangles = [new Triangle(d, e, f, 'ABC'), new Triangle(g, h, k, 'GHK')];
 const triangleRoot = document.getElementById("triangle-root");
 
 const renderTriangle = (triangle) => `
-  <div class= "app-shell ${!triangle.isValid() ? "invalid" : ""} ">
+  <div class= "main-card ${!triangle.isValid() ? "invalid" : ""} ">
     <h1 class='name-container'>${triangle.name}</h1>
         <div class="area">area:${triangle.isValid() ? triangle.area() : "--"}</div>
         <div class="shape-info"> sides:
@@ -63,7 +63,7 @@ const renderTriangle = (triangle) => `
 `
 
 triangleRoot.innerHTML = `
-<div class="main-card">
+<div class="app-shell">
   <h1 class='name-container'>Triangles</h1>
   ${triangles.map(renderTriangle).join("")}
 </div>

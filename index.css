@@ -13,17 +13,10 @@ body {
   flex-direction: column;
   margin: 8px;
 }
+
 .name-container{
   text-transform: uppercase;
   letter-spacing: 3px;
-}
-
-.triangle-shell {
-  margin: 8px;
-  background: lightgrey;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
 }
 
 .flex-container {
@@ -62,6 +55,14 @@ body {
   align-items: center;
 }
 
-.invalid {
-  background-color: cadetblue;
+.main-card {
+  padding: 16px;
+  background-color: lightslategray;
+  border: 1px solid black;
+  margin: 8px;
 }
+
+.main-card.invalid {
+  background-color: lightcoral;
+}
+

@@ -35,52 +35,65 @@ class Rectangle {
 
 
 
-const h = new Point(2, 2);
-const g = new Point(2, 6);
-const j = new Point(6, 10);
-const q = new Point(1, 1);
+const firstRectanglePointOne = new Point(2, 2);
+const firstRectanglePointTwo = new Point(2, 6);
+const firstRectanglePointThree = new Point(6, 10);
+const firstRectanglePointFour = new Point(1, 1);
 
-const pointOne = new Point(1, 1);
-const pointTwo = new Point(1, 2);
-const pointThree = new Point(3, 2);
-const pointFour = new Point(3, 1);
+const secondRectanglePointOne = new Point(1, 1);
+const secondRectanglePointTwo = new Point(1, 2);
+const secondRectanglePointThree = new Point(3, 2);
+const secondRectanglePointFour = new Point(3, 1);
 
 
-const rectangles = [new Rectangle(h, g, j, q), new Rectangle(pointOne, pointTwo, pointThree, pointFour)];
+const rectangles = [new Rectangle(
+  firstRectanglePointOne,
+  firstRectanglePointTwo,
+  firstRectanglePointThree,
+  firstRectanglePointFour
+), new Rectangle(
+  secondRectanglePointOne,
+  secondRectanglePointTwo,
+  secondRectanglePointThree,
+  secondRectanglePointFour
+  )];
 const rectangleRoot = document.getElementById("rectangle-root");
 
+const renderRectangle = (rectangle) => `
+<div class="main-card ${!rectangle.isValid() ? "invalid" : ""} ">
+  <h1 class ='name-container'>Reactangles</h1>
+  <div class="area">area: ${
+      rectangle.isValid() ? rectangle.area() : "--"
+  }</div>
+  <div class = "shape-info">sides:
+
+    <div class="chip">side one: ${
+      rectangle.isValid() ? rectangle.ab.toFixed(2) : "--"
+    }</div>
+      
+    <div class="chip">side two: ${
+      rectangle.isValid() ? rectangle.bc.toFixed(2) : "--"
+    }</div>
+      
+    <div class="chip">side three: ${
+      rectangle.isValid() ? rectangle.cd.toFixed(2) : "--"
+    }</div>
+      
+    <div class="chip">side four: ${
+      rectangle.isValid() ? rectangle.da.toFixed(2) : "--"
+    }</div>  
+    </div>
+    <div class="shape-info"> Picks:
+      <div class="chip">A (x: ${rectangle.a.x} y: ${rectangle.a.y})</div>
+      <div class="chip">B (x: ${rectangle.b.x} y: ${rectangle.b.y})</div>
+      <div class="chip">C (x: ${rectangle.c.x} y: ${rectangle.c.y})</div>
+      <div class="chip">D (x: ${rectangle.d.x} y: ${rectangle.d.y})</div>
+  </div>
+</div>
+`
+
 rectangleRoot.innerHTML = `
- ${rectangles
-    .map(
-        (rectangle, index) => `
-    
-            <div class="app-shell ${!rectangle.isValid() ? "invalid" : ""} ">
-                <h1>Reactangle</h1>
-                <div class="list">
-                    <div class="area">area: ${
-                      rectangle.isValid() ? rectangle.area() : "-"
-                    }</div>
-                    <div class = "vertices">vertices:
-              
-                      <div class="chip">ab: ${
-                        rectangle.isValid() ? rectangle.ab.toFixed(2) : "--"
-                      }</div>
-                      
-                      <div class="chip">bc: ${
-                        rectangle.isValid() ? rectangle.bc.toFixed(2) : "--"
-                      }</div>
-                      
-                      <div class="chip">cd: ${
-                        rectangle.isValid() ? rectangle.cd.toFixed(2) : "--"
-                      }</div>
-                      
-                      <div class="chip">da: ${
-                        rectangle.isValid() ? rectangle.da.toFixed(2) : "--"
-                      }</div>
-                    </div>
-                </div>
-          </div>
-        `
-    )
-    .join("")}
+<div class="app-shell">
+    ${rectangles.map(renderRectangle).join('')}
+  </div>
 `;
