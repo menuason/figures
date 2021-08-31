@@ -8,7 +8,7 @@ class Point {
     this.y = y;
     this.name = name;
   }
-
+  
   distanceFrom(point) {
     if (!(point instanceof Point)) {
       throw new Error("blabla");
@@ -23,25 +23,38 @@ class Point {
 
 const points = [new Point(5, 6, 'A'), new Point(10, 12, 'B'), new Point(15, 20,'C')];
 
-const appRoot = document.getElementById("app-root");
-const renderPoint= (point) =>`
-<div class="chip">${point.name}
+// const appRoot = document.getElementById("app-root");
+const renderPoint = (point, index) => `
+
+<div class="chip">
+  ${point.name}
   (x: ${point.x}
   y: ${point.y})
 </div>
-`
-
-appRoot.innerHTML = `
-<div class="app-shell">
-
-  <h1 class='name-container'>Points</h1>
-  <div class="list">
-    <div class="flex-container">
-      ${points.map(renderPoint).join("")}
-    </div>
-  </div>
-</div>
 `;
+
+const renderPointList = (points) =>`
+    <div class="list">
+      <div class="flex-container">
+        ${
+          points.map(renderPoint).join('')
+        }
+      </div>
+    </div>
+
+`;
+
+// appRoot.innerHTML = `
+// <div class="app-shell">
+
+//   <h1 class='name-container'>Points</h1>
+//   <div class="list">
+//     <div class="flex-container">
+//       ${points.map(renderPoint).join("")}
+//     </div>
+//   </div>
+// </div>
+// `;
 compareWithPrecision = function(firstNum, secondNum) {
   // const num = +firstNum;
   // const secondNumber = +secondNum;

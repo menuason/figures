@@ -15,20 +15,24 @@ const center = new Point(3, 4);
 const radius = 10;
 const circles = [new Circle(center, radius)];
 
-const circleRoot = document.getElementById("circle-root");
+// const circleRoot = document.getElementById("circle-root");
 const renderCircle = (circle) => `
-<div class="list">
+<div class="card">
   <div class="area">area: ${circle.area().toFixed(2)}
     <div class="shape-info"> center:
       <div class="chip">O (x: ${center.x} y: ${center.y})</div>
     </div>
   </div>
 </div>
-`
-
-circleRoot.innerHTML = `
-<div class="app-shell">
-  <h1> Circle </h1>
-  ${circles.map(renderCircle).join('')}
-</div> 
 `;
+
+const renderCircleList = (circles) => `
+    ${circles.map(renderCircle).join('')}
+`;
+
+// circleRoot.innerHTML = `
+// <div class="app-shell">
+//   <h1> Circle </h1>
+//   ${circles.map(renderCircle).join('')}
+// </div> 
+// `;

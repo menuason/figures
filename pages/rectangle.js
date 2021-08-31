@@ -1,9 +1,10 @@
 class Rectangle {
-  constructor(a, b, c, d) {
+  constructor(a, b, c, d, name) {
     this.a = a;
     this.b = b;
     this.c = c;
     this.d = d;
+    this.name = name;
   }
 
   get ab() {
@@ -50,18 +51,23 @@ const rectangles = [new Rectangle(
   firstRectanglePointOne,
   firstRectanglePointTwo,
   firstRectanglePointThree,
-  firstRectanglePointFour
+  firstRectanglePointFour,
+  'abcd'
+
+
 ), new Rectangle(
   secondRectanglePointOne,
   secondRectanglePointTwo,
   secondRectanglePointThree,
-  secondRectanglePointFour
-  )];
-const rectangleRoot = document.getElementById("rectangle-root");
+  secondRectanglePointFour,
+  'defh'
+)];
+
+// const rectangleRoot = document.getElementById("rectangle-root");
 
 const renderRectangle = (rectangle) => `
 <div class="main-card ${!rectangle.isValid() ? "invalid" : ""} ">
-  <h1 class ='name-container'>Reactangles</h1>
+  <h1 class ='title-container'>${rectangle.name}</h1>
   <div class="area">area: ${
       rectangle.isValid() ? rectangle.area() : "--"
   }</div>
@@ -92,8 +98,14 @@ const renderRectangle = (rectangle) => `
 </div>
 `
 
-rectangleRoot.innerHTML = `
-<div class="app-shell">
+// rectangleRoot.innerHTML = `
+// <div class="app-shell">
+//     ${rectangles.map(renderRectangle).join('')}
+//   </div>
+// `;
+
+const renderRectangleList = (rectangles) => `
+  <div class="app-shell">
     ${rectangles.map(renderRectangle).join('')}
   </div>
 `;

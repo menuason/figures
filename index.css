@@ -14,7 +14,7 @@ body {
   margin: 8px;
 }
 
-.name-container{
+.title-container{
   text-transform: uppercase;
   letter-spacing: 3px;
 }
@@ -32,7 +32,7 @@ body {
   padding: 16px;
 }
 
-.list {
+.card {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -64,5 +64,39 @@ body {
 
 .main-card.invalid {
   background-color: lightcoral;
+}
+
+.nav-button {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+}
+
+.nav-button:hover {
+  background-color: lightcyan;
+  cursor: pointer;
+}
+
+.nav-button.active {
+  border-bottom-color: green;
+} 
+
+.app-name {
+  font-size: 32px;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.nav-button {
+  font-size: 24px;
+}
+
+.app-header{
+  display: flex;
+  justify-content: space-between ;
+  padding: 8px;
+  align-items: center;
 }
 

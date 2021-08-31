@@ -43,11 +43,11 @@ const k = new Point(3, 7, 'K');
 
 const triangles = [new Triangle(d, e, f, 'ABC'), new Triangle(g, h, k, 'GHK')];
 
-const triangleRoot = document.getElementById("triangle-root");
+// const triangleRoot = document.getElementById("triangle-root");
 
 const renderTriangle = (triangle) => `
   <div class= "main-card ${!triangle.isValid() ? "invalid" : ""} ">
-    <h1 class='name-container'>${triangle.name}</h1>
+    <h1 class='title-container'>${triangle.name}</h1>
         <div class="area">area:${triangle.isValid() ? triangle.area() : "--"}</div>
         <div class="shape-info"> sides:
           <div class="chip"> first side: ${triangle.isValid() ? triangle.ab.toFixed(2): "--"}</div>
@@ -62,10 +62,16 @@ const renderTriangle = (triangle) => `
   </div>
 `
 
-triangleRoot.innerHTML = `
-<div class="app-shell">
-  <h1 class='name-container'>Triangles</h1>
-  ${triangles.map(renderTriangle).join("")}
-</div>
+// triangleRoot.innerHTML = `
+// <div class="app-shell">
+//   <h1 class='name-container'>Triangles</h1>
+//   ${triangles.map(renderTriangle).join("")}
+// </div>
+// `;
+
+const renderTriangleList = (triangles) => `
+  <div class="app-shell">
+    ${triangles.map(renderTriangle).join("")}
+  </div>
 `;
 
