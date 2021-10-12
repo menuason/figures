@@ -7,7 +7,7 @@ const activePage = {
         return this._index;
     },
 
-    set index (value){
+    set index (value) {
         return this._index = value;
     },
 

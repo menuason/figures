@@ -17,7 +17,8 @@ const circles = [new Circle(center, radius)];
 
 // const circleRoot = document.getElementById("circle-root");
 const renderCircle = (circle) => `
-<div class="card">
+<div class="list
+">
   <div class="area">area: ${circle.area().toFixed(2)}
     <div class="shape-info"> center:
       <div class="chip">O (x: ${center.x} y: ${center.y})</div>

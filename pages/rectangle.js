@@ -36,15 +36,15 @@ class Rectangle {
 
 
 
-const firstRectanglePointOne = new Point(2, 2);
-const firstRectanglePointTwo = new Point(2, 6);
-const firstRectanglePointThree = new Point(6, 10);
-const firstRectanglePointFour = new Point(1, 1);
+const firstRectanglePointOne = new Point(2, 2, 'A');
+const firstRectanglePointTwo = new Point(2, 6, 'B');
+const firstRectanglePointThree = new Point(6, 10, 'C');
+const firstRectanglePointFour = new Point(1, 1, 'D');
 
-const secondRectanglePointOne = new Point(1, 1);
-const secondRectanglePointTwo = new Point(1, 2);
-const secondRectanglePointThree = new Point(3, 2);
-const secondRectanglePointFour = new Point(3, 1);
+const secondRectanglePointOne = new Point(1, 1,'E');
+const secondRectanglePointTwo = new Point(1, 2, 'F');
+const secondRectanglePointThree = new Point(3, 2, 'G');
+const secondRectanglePointFour = new Point(3, 1, 'H');
 
 
 const rectangles = [new Rectangle(
@@ -52,48 +52,48 @@ const rectangles = [new Rectangle(
   firstRectanglePointTwo,
   firstRectanglePointThree,
   firstRectanglePointFour,
-  'abcd'
-
 
 ), new Rectangle(
   secondRectanglePointOne,
   secondRectanglePointTwo,
   secondRectanglePointThree,
   secondRectanglePointFour,
-  'defh'
 )];
 
 // const rectangleRoot = document.getElementById("rectangle-root");
 
 const renderRectangle = (rectangle) => `
 <div class="main-card ${!rectangle.isValid() ? "invalid" : ""} ">
-  <h1 class ='title-container'>${rectangle.name}</h1>
+  <h1 class ='title-container'>
+    ${rectangle.a.name}${rectangle.b.name}${rectangle.c.name}${rectangle.d.name}
+  </h1>
   <div class="area">area: ${
       rectangle.isValid() ? rectangle.area() : "--"
   }</div>
   <div class = "shape-info">sides:
 
-    <div class="chip">side one: ${
+    <div class="chip">${rectangle.a.name}${rectangle.b.name} = ${
       rectangle.isValid() ? rectangle.ab.toFixed(2) : "--"
     }</div>
       
-    <div class="chip">side two: ${
+    <div class="chip">${rectangle.b.name}${rectangle.c.name} = ${
       rectangle.isValid() ? rectangle.bc.toFixed(2) : "--"
     }</div>
       
-    <div class="chip">side three: ${
+    <div class="chip">${rectangle.c.name}${rectangle.d.name} = ${
       rectangle.isValid() ? rectangle.cd.toFixed(2) : "--"
     }</div>
       
-    <div class="chip">side four: ${
+    <div class="chip">${rectangle.d.name}${rectangle.a.name} = ${
       rectangle.isValid() ? rectangle.da.toFixed(2) : "--"
     }</div>  
     </div>
-    <div class="shape-info"> Picks:
-      <div class="chip">A (x: ${rectangle.a.x} y: ${rectangle.a.y})</div>
-      <div class="chip">B (x: ${rectangle.b.x} y: ${rectangle.b.y})</div>
-      <div class="chip">C (x: ${rectangle.c.x} y: ${rectangle.c.y})</div>
-      <div class="chip">D (x: ${rectangle.d.x} y: ${rectangle.d.y})</div>
+    <div class="shape-info">
+      Vertices:
+      ${renderPoint(rectangle.a)}
+      ${renderPoint(rectangle.b)}
+      ${renderPoint(rectangle.c)}
+      ${renderPoint(rectangle.d)}
   </div>
 </div>
 `
@@ -106,6 +106,6 @@ const renderRectangle = (rectangle) => `
 
 const renderRectangleList = (rectangles) => `
   <div class="app-shell">
-    ${rectangles.map(renderRectangle).join('')}
-  </div>
+      ${rectangles.map(renderRectangle).join('')}
+    </div>
 `;

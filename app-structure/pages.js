@@ -1,7 +1,7 @@
 const pages =  [
     {
         pageName: "Points",
-        renderPage: () =>renderPointList(points),
+        renderPage: () => renderPointList(points),
     },
     {
         pageName: "Circles",
@@ -13,6 +13,6 @@ const pages =  [
     },
     {
         pageName: "Triangles",
-            renderPage: () =>renderTriangleList(triangles),
+            renderPage: () => renderTriangleList(triangles),
     }
 ];

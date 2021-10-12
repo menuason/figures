@@ -41,23 +41,21 @@ const g = new Point(1, 1, 'G');
 const h = new Point(5, 6, 'H');
 const k = new Point(3, 7, 'K');
 
-const triangles = [new Triangle(d, e, f, 'ABC'), new Triangle(g, h, k, 'GHK')];
+const triangles = [new Triangle(d, e, f), new Triangle(g, h, k)];
 
 // const triangleRoot = document.getElementById("triangle-root");
 
 const renderTriangle = (triangle) => `
   <div class= "main-card ${!triangle.isValid() ? "invalid" : ""} ">
-    <h1 class='title-container'>${triangle.name}</h1>
+    <h1 class='title-container'>${triangle.a.name}${triangle.b.name}${triangle.c.name}</h1>
         <div class="area">area:${triangle.isValid() ? triangle.area() : "--"}</div>
         <div class="shape-info"> sides:
-          <div class="chip"> first side: ${triangle.isValid() ? triangle.ab.toFixed(2): "--"}</div>
-          <div class="chip"> second side: ${triangle.isValid() ? triangle.bc.toFixed(2): "--"}</div>
-          <div class="chip"> third side: ${triangle.isValid() ? triangle.ca.toFixed(2): "--"}</div>
+          <div class="chip"> ${triangle.a.name}${triangle.b.name}: ${triangle.isValid() ? triangle.ab.toFixed(2): "--"}</div>
+          <div class="chip"> ${triangle.b.name}${triangle.c.name}: ${triangle.isValid() ? triangle.bc.toFixed(2): "--"}</div>
+          <div class="chip"> ${triangle.a.name}${triangle.c.name}: ${triangle.isValid() ? triangle.ca.toFixed(2): "--"}</div>
       </div> 
-    <div class="shape-info"> Picks:
-      <div class="chip">A (x: ${triangle.a.x} y: ${triangle.a.y})</div>
-      <div class="chip">B (x: ${triangle.b.x} y: ${triangle.b.y})</div>
-      <div class="chip">C (x: ${triangle.c.x} y: ${triangle.c.y})</div>
+    <div class="shape-info">
+      Vertices: ${renderPoint(triangle.a)} ${renderPoint(triangle.b)} ${renderPoint(triangle.c)}
     </div>
   </div>
 `
